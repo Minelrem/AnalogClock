@@ -1,15 +1,16 @@
-﻿<Window x:Class="AnalogClock.MainWindow"
+﻿<Window x:Name="AnalogClock" x:Class="AnalogClock.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnalogClock"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500"
+        Title="AnalogClock" Height="500" Width="500"
         AllowsTransparency="True" 
-        WindowStyle="None" >
+        WindowStyle="None" 
+        Icon="Resources\icon.ico">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\User\Documents\visual studio 2017\Projects\AnalogClock\AnalogClock\clockBackgroung.png"></ImageBrush>
+        <ImageBrush ImageSource="Resources\clockBackgroung.png"></ImageBrush>
     </Window.Background>
     <Canvas Name="Clock" Loaded="Clock_Loaded">
         <Rectangle Width="3" Height="189" Fill="Gray" Canvas.Left="250" Canvas.Top="60" Name="SecondsArrow">
@@ -17,15 +18,6 @@
                 <RotateTransform CenterX="0" CenterY="190" Angle="360" x:Name="secTrans" />
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Width="3" Height="189" Fill="Gray" Canvas.Left="250" Canvas.Top="60" Name="MinuteArrow">
-            <Rectangle.RenderTransform >
-                <RotateTransform CenterX="0" CenterY="190" Angle="360" x:Name="minTrans"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle Width="3" Height="189" Fill="Gray" Canvas.Left="250" Canvas.Top="60" Name="HourArrow">
-            <Rectangle.RenderTransform >
-                <RotateTransform CenterX="0" CenterY="190" Angle="360" x:Name="hourTrans"/>
-            </Rectangle.RenderTransform>
-        </Rectangle>
+         
     </Canvas>
 </Window>
