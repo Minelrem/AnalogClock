@@ -9,7 +9,7 @@
         AllowsTransparency="True" 
         WindowStyle="None" >
     <Window.Background>
-        <ImageBrush ImageSource="clockBackgroung.png"></ImageBrush>
+        <ImageBrush ImageSource="C:\Users\User\Documents\visual studio 2017\Projects\AnalogClock\AnalogClock\clockBackgroung.png"></ImageBrush>
     </Window.Background>
     <Canvas Name="Clock" Loaded="Clock_Loaded">
         <Rectangle Width="3" Height="189" Fill="Gray" Canvas.Left="250" Canvas.Top="60" Name="SecondsArrow">

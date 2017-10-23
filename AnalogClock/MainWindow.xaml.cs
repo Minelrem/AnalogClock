@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AnalogClock
@@ -23,10 +13,11 @@ namespace AnalogClock
     public partial class MainWindow : Window
     {
 
-        
-        Tuple<int,int> hour = Tuple.Create(0,0);
-        Tuple<int, int> min = Tuple.Create(0, 0);
-        Tuple<int, int> sec = Tuple.Create(1, 1);
+        #region init of degree(Type1) and current time(Type 2)  
+        Tuple<int,int> hours = Tuple.Create(0,0);
+        Tuple<int, int> mins = Tuple.Create(0, 0);
+        Tuple<int, int> secs = Tuple.Create(1, 1);
+        #endregion
 
         DoubleAnimation secAnim;
         DoubleAnimation minAnim;
@@ -76,7 +67,7 @@ namespace AnalogClock
             };
 
             hourAnim.Completed += HourAnim_Completed;
-             
+
             #endregion
 
             #region animation begin
@@ -89,6 +80,7 @@ namespace AnalogClock
 
         }
 
+        #region events subscription
         private void HourAnim_Completed(object sender, EventArgs e)
         {
             object hourName = hourAnim.Name;
@@ -112,18 +104,17 @@ namespace AnalogClock
             object secName = secAnim.Name;
 
             Timer timer = new Timer(timCall, secName, 1, 0);
-       
+
         }
+        #endregion
 
         void refreshAnimation(object obj)
-        {
-            string name = (string)obj + "Anim";
-        
+        { 
             switch ((string)obj) { 
                 case "minAnim":
                     {
 
-                        mins = Tuple.Create(1, 1);
+                        mins = Tuple.Create(0, 1);
 
                         Dispatcher.Invoke(() =>
                         {
@@ -138,7 +129,7 @@ namespace AnalogClock
                 case "secAnim":
                     {
                        
-                        secs = Tuple.Create(1, 1);
+                        secs = Tuple.Create(0, 1);
                          
                         Dispatcher.Invoke(() =>
                         {
@@ -152,7 +143,7 @@ namespace AnalogClock
                     }
                 case "hourAnim":
                     {
-                        hours = Tuple.Create(1, 1);
+                        hours = Tuple.Create(0, 1);
 
                         Dispatcher.Invoke(() =>
                         {
